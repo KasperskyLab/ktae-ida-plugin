@@ -10,10 +10,17 @@ import ida_idaapi
 import ida_segment
 import ida_bytes
 import ida_nalt
+import ida_pro
 
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
+if (ida_pro.IDA_SDK_VERSION < 920):
+	from PyQt5.QtCore import *
+	from PyQt5.QtGui import *
+	from PyQt5.QtWidgets import *
+
+else:
+	from PySide6.QtCore import *
+	from PySide6.QtGui import *
+	from PySide6.QtWidgets import *
 
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
